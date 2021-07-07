@@ -2,12 +2,15 @@
 // should return true if the message can be built with letters; otherwise should return false
 //constraint: O(M + L) where M is the length of message and N is the length of letters
 
-
 function constructNote(message, letters) {
     let messageChars = makeFreqCounter(message);
     let lettersChars = makeFreqCounter(letters);
 
-    for(let char of messageChars) {
+    if(message === '') {
+        return true;
+    }
+
+    for(let char of message) {
         if(lettersChars[char] >= messageChars[char]) {
             return true;
         }
@@ -15,6 +18,7 @@ function constructNote(message, letters) {
     return false;
 }
 
+//helper function to make a frequency counter
 function makeFreqCounter(str) {
     let freqCounter = {};
     for(let char of str) {
@@ -22,3 +26,5 @@ function makeFreqCounter(str) {
     }
     return freqCounter;
 }
+
+
