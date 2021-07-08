@@ -3,10 +3,15 @@
 //if there are not enough values, the rest of the keys will have a value of null. iI there are not enough keys, the rest of the values will be ignored. 
 
 function twoArrayObject(keys, values) {
-    let object = {};
+    let newObject = {};
 
     for(let i = 0; i < keys.length; i++) {
-        if(keys.length === values.length) {
-            object[key[i]] === values[i] || null;
+        if(i < values.length) {
+            newObject[keys[i]] = values[i];
+        } else {
+            newObject[keys[i]] = null;
+        }
     }
+
+    return newObject;
 }
